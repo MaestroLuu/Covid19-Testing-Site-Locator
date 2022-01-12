@@ -13,22 +13,26 @@
 </head>
 
 <body>
-    <header class="w3-container">
+    <header class="w3-container w3-light-blue">
         <h1>COVID-19 Test Locator</h1>
-        <nav></nav>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
     <figure>
-        <div class="hero">
-            <div class="herowords">
-                <h2>Get Online Right Now!</h2>
-            </div>
+        <div class="jumbo">
+            <div class="jumbowords">
+                <h2>If you have tested positive for COVID-19 in the last 14 days, 
+                it is reccommended that you isolate yourself from human contact. Vaccines to protect yourself are available.
+            Please also consider Booster Vaccines. Always brings a Face Covering</h2></div>
         </div>
     </figure>
-
-    <main>
-        
-        <section class="row">
-            <div class="w3-sidebar w3-bar-block w3-collapse w3-card" style="width:400px;" id="mySidebar">
+    <main class="w3-container">
+        <section class="w3-row">
+            <div class="w3-third w3-bar-block w3-collapse w3-card" id="mySidebar">
                 <h2 class="w3-margin-left">Recent News on COVID-19</h2>
 
                 <!-- graph with data values from pulled API if possible -->
@@ -37,12 +41,39 @@
                 <a href="#" class="w3-bar-item w3-button" id="article-1">Article 1</a>
                 <a href="#" class="w3-bar-item w3-button" id="article-2">Article 2</a>
                 <a href="#" class="w3-bar-item w3-button" id="article-3">Article 3</a>
-              </div>
+                
+            </div>
+            <div class="search w3-twothird">
+                <div>
+                    Search function here
+                </div>
+                <div>Results populated here</div>
+            </div>
         </section>
     </main>
+    <footer class="container">
+        <div class="w3-third"></div>
+        <div class="w3-third">
+        <p><strong>Contact Us</strong></p>
+        <form>
 
-    <footer>
-        <div>Contact Form</div>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        
+            <label for="email">Last Name</label>
+            <input type="text" id="email" name="email" placeholder="Your E-mail..">
+        
+            <label for="subject">Comments</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        
+            <input type="submit" value="Submit">
+        
+          </form>
+        </div>
+        <div class="w3-third"></div>
     </footer>
     <script src="./assets/js/script.js"></script>
 </body>
