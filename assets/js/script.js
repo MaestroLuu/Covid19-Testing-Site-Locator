@@ -1,11 +1,11 @@
 // Marco's Code
-var apiUrl = "";
+var apiUrlNews = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid-cases&api-key=vULfp6mXKDYYuz3IoryCuILRxwbMZh4O";
 
-fetch(apiUrl)
+fetch(apiUrlNews)
   .then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        console.log(data[0].physical_address[0].city);
+        console.log(data);
       });
     } else {
       alert('Error: ' + response.statusText);
@@ -14,6 +14,23 @@ fetch(apiUrl)
   .catch(function (error) {
     alert('Error');
   });
+
+  var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
+
+  fetch(apiUrlLocation)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+        });
+      } else {
+        alert('Error: ' + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert('Error');
+    });
+
 
 
 
