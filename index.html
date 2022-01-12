@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Covid-19 Test Locator</title>
 </head>
 
@@ -22,18 +24,26 @@
             </div>
         </div>
     </figure>
+
     <main>
+        
         <section class="row">
-            <div class="news">Graphs and News here</div>
-            <div class="search">
-                <div>Search function here</div>
-                <div>Results populated here</div>
-            </div>
+            <div class="w3-sidebar w3-bar-block w3-collapse w3-card" style="width:400px;" id="mySidebar">
+                <h2 class="w3-margin-left">Recent News on COVID-19</h2>
+
+                <!-- graph with data values from pulled API if possible -->
+
+                <button class="w3-bar-item w3-button w3-hide-large" onclick="w3_close()">Close &times;</button>
+                <a href="#" class="w3-bar-item w3-button" id="article-1">Article 1</a>
+                <a href="#" class="w3-bar-item w3-button" id="article-2">Article 2</a>
+                <a href="#" class="w3-bar-item w3-button" id="article-3">Article 3</a>
+              </div>
         </section>
     </main>
+
     <footer>
         <div>Contact Form</div>
     </footer>
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
