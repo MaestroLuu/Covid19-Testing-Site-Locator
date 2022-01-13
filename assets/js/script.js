@@ -15,40 +15,37 @@ fetch(apiUrlNews)
     alert('Error');
   });
 
-  var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
+var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
 
-  fetch(apiUrlLocation)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          console.log(data);
-        });
-      } else {
-        alert('Error: ' + response.statusText);
-      }
-    })
-    .catch(function (error) {
-      alert('Error');
-    });
+fetch(apiUrlLocation)
+  .then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+        console.log(data);
+      });
+    } else {
+      alert('Error: ' + response.statusText);
+    }
+  })
+  .catch(function (error) {
+    alert('Error');
+  });
 
+var apiUrlCovidActNow = "https://api.covidactnow.org/v2/state/CA.json?apiKey=e8eb26806f83418eade3b431bfc5fc2c";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+fetch(apiUrlCovidActNow)
+  .then(function (response) {
+    if (response.ok) {
+      response.json().then(function (data) {
+        console.log(data);
+      });
+    } else {
+      alert('Error: ' + response.statusText);
+    }
+  })
+  .catch(function (error) {
+    alert('Error');
+  });
 
 
 
