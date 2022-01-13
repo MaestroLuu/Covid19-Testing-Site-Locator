@@ -37,7 +37,3 @@ fetch(apiUrlTS)
   .catch(function (error) {
     alert('Error');
   });
-
-
-
-  
