@@ -1,66 +1,89 @@
-header { 
+header {
     align-items: center;
     padding: 1%;
-  }
+}
 
-  header h1 {
+header h1 {
     display: inline-block;
-    font-family: Krungthep;
+    font-family: 'Bungee', cursive;
     font-style: italic;
     color: white;
-    text-shadow: 1px 2px black;
-  }
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.66);
+}
 
-  header nav {
+header nav {
     float: right;
-  }
+}
 
-  nav ul {
+nav ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
-  }
-  
-  nav a { 
+}
+
+nav a {
     font-weight: bold;
     text-decoration: none;
-    margin-right: 20px; 
+    margin-right: 20px;
     font-size: x-large;
     color: white;
-    text-shadow: 1px 2px black;
-  }
-  
-  nav a:hover { 
+    text-shadow: 1px 2px rgba(0, 0, 0, 0.66);
+}
+
+nav a:hover {
     text-decoration: underline;
-  }
+}
 
-  .w3-animate-left {
+.w3-animate-left {
     animation: animateleft 1.25s;
-  }
+}
 
-  a {
-      color: blue;
-  }
+a {
+    color: blue;
+}
 
-  figure {
+figure {
     margin: 1em 2em;
     padding: 5px 3%;
-  }
+}
 
-  .jumbo {
+.jumbo {
     border: 10px solid red;
     border-radius: 50px;
-  }
+}
 
-  .w3-row {
-      margin-top: 16px;
-  }
+.w3-twothird {
+    width: 64.66666%;
+    margin-left: 2%;
+}
 
-  #mySidebar {
-    border-radius: 8px;
-  }
+select {
+    font-size: 21px;
+}
 
+.videobox {
+    width: 100%;
+    height: auto;
+}
 
-  footer.container {
+.w3-row {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+footer.container {
     display: flex;
-  }
+}
+
+@media (max-width: 601px) {
+
+    .w3-col.m8,
+    .w3-twothird {
+        width: 66.66666%;
+        margin-left: 0%;
+    }
+
+    #mySidebar {
+        display: none;
+    }
+}

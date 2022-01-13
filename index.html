@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
     <title>Covid-19 Test Locator</title>
 </head>
 
 <body>
-    <header class="w3-container w3-light-blue">
+    <header class="w3-container w3-dark-grey">
         <h1>COVID-19 Test Locator</h1>
         <nav>
             <ul>
@@ -24,41 +28,66 @@
         </nav>
     </header>
     <figure class="jumbo w3-animate-left">
-        
+
         <div class="jumbowords ">
-            <h2>NOTICE: <br>If you have tested positive for COVID-19 in the last 14 days,
-                it is reccommended that you isolate yourself from human contact. <a href="https://www.vaccines.gov" target="_blank">Vaccines</a> to protect yourself are
+            <h2>NOTICE: <br>If you have tested positive for COVID-19,
+                please isolate yourself from human contact for <strong>5 days</strong>
+                and then take another test. <a href="https://www.vaccines.gov" target="_blank">Vaccines</a> to protect
+                yourself are
                 available.
                 Please also consider Booster Vaccines. Always brings a Face Covering.</h2>
         </div>
 
     </figure>
-    <main class="w3-container">
+    <main class="w3-container w3-light-grey">
         <section class="w3-row">
-            <div class="w3-third w3-bar-block w3-collapse w3-light-grey w3-padding" id="mySidebar">
-                <h2 >Recent News on COVID-19</h2>
+            <div class="w3-third w3-bar-block w3-collapse w3-mobile" id="mySidebar">
+                <div class="newsbox w3-padding w3-round-xlarge w3-white">
+                    <h2>Recent News on COVID-19</h2>
 
-                <!-- graph with data values from pulled API if possible -->
+                    <!-- graph with data values from pulled API if possible -->
 
-                <button class="w3-bar-item w3-button w3-hide-large" onclick="w3_close()">Close &times;</button>
-                <a href="#" class="w3-bar-item w3-button" id="article-1">Article 1</a>
-                <a href="#" class="w3-bar-item w3-button" id="article-2">Article 2</a>
-                <a href="#" class="w3-bar-item w3-button" id="article-3">Article 3</a>
+                    <button class="w3-bar-item w3-button w3-hide-large" onclick="w3_close()">Close &times;</button>
+                    <a href="#" class="w3-bar-item w3-button" id="article-1">Article 1</a>
+                    <a href="#" class="w3-bar-item w3-button" id="article-2">Article 2</a>
+                    <a href="#" class="w3-bar-item w3-button" id="article-3">Article 3</a>
+
+                </div>
+
+                <br>
+
+                <div class="videobox w3-padding w3-round-xlarge w3-white">
+                    <h2>Self-Testing Instructions <a
+                            href="https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/testing.html"
+                            target="_blank"><img width="10%" height="10%"
+                                src="https://www.sandiegocounty.gov/content/dam/sdc/initialcontent/logo/cosd-seal-sm.png"
+                                alt="san diego county covid-19 test"></a></h2>
+
+                    <p><iframe src="https://www.youtube.com/embed/Xli2t4skfx0" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe></p>
+                </div>
+                <br>
+                <div class="graph w3-padding w3-round-xlarge w3-white">
+                    <iframe src="https://public.domo.com/cards/azrGr" width="100%" height="600" marginheight="0"
+                        marginwidth="0" frameborder="0"></iframe>
+                </div>
 
             </div>
-            <div class="search w3-twothird w3-padding w3-card-2">
+            <div class="search w3-twothird w3-white w3-padding w3-card-2 w3-round-xlarge w3-mobile">
                 <div>
                     <h2>Find a COVID-19 Testing Site</h2>
                 </div>
-              
+
                 <select name="cities" id="testing-sites">
                     <option value="">Select City</option>
                     <option value="San Diego">San Diego</option>
                     <option value="Sacramento">Sacramento</option>
                     <option value="San Francisco">San Francisco</option>
                     <option value="San Jose">San Jose</option>
-                  </select>
-              
+                </select>
+
                 <!-- links will reflect testing site names
                  href will populate addresses in the div container below -->
                 <div class="w3-bar-block" id="results-container">
@@ -77,15 +106,33 @@
         </section>
     </main>
     <footer class="container">
-        <div class="w3-third"></div>
-        <div class="w3-third">
-            <p style="font-size: larger;"><strong>Contact Us</strong></p>
-             <p>Send us an <a href="sendmaxstuff@gmail.com">E-Mail</a> if you have any feedback.</p>
+
+        <div class="w3-third w3-mobile">
+            <p style="font-size: x-large; margin-left: 20px;"><strong>Helpful Links</strong></p>
+            <ul>
+                <li><a href="https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/testing.html"
+                        target="_blank">San Diego County - Testing</a></li>
+                <li><a href="https://www.cdc.gov" target="_blank">CDC</a></li>
+                <li><a href="https://www.fda.gov/emergency-preparedness-and-response/coronavirus-disease-2019-covid-19/covid-19-vaccines"
+                        target="_blank">FDA - Vaccines</a></li>
+                <li><a href="https://www.vaccines.gov" target="_blank">Vaccine Finder</a>
+                <li><a href="https://www.sandiegocounty.gov/content/sdc/hhsa/programs/phs/community_epidemiology/dc/2019-nCoV/Treatment.html"
+                        target="_blank">Treatments</a></li>
+            </ul>
         </div>
-        <div class="w3-third"></div>
+        <div class="w3-third w3-mobile" id="#contact">
+            <p style="font-size: x-large;"><strong>Contact Us</strong></p>
+            <p>Send us an <a href="sendmaxstuff@gmail.com">E-Mail</a> if you have any feedback.</p>
+        </div>
+        <div class="w3-third w3-mobile">
+            <p><img
+                    src="https://uploads-ssl.webflow.com/5e8e0c7af49b47c2278efb42/5f36d4ad7c8f9d737f00a5d5_b451e002.png" />
+            </p>
+        </div>
     </footer>
     <script src="./assets/js/news.js"></script>
     <script src="./assets/js/location.js"></script>
-    <script src="./assets/js/cases.js"></script>
+
 </body>
+
 </html>
