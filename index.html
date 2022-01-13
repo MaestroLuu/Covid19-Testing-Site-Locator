@@ -50,7 +50,7 @@
                 <div>
                     <h2>Find a COVID-19 Testing Site</h2>
                 </div>
-                
+              
                 <select name="cities" id="testing-sites">
                     <option value="">Select City</option>
                     <option value="San Diego">San Diego</option>
@@ -58,8 +58,21 @@
                     <option value="San Francisco">San Francisco</option>
                     <option value="San Jose">San Jose</option>
                   </select>
+              
+                <!-- links will reflect testing site names
+                 href will populate addresses in the div container below -->
+                <div class="w3-bar-block" id="results-container">
+                    <h2>Testing Facilities</h2>
+                    <a href="#" class="w3-bar-item w3-button">Testing Site Name</a>
+                    <a href="#" class="w3-bar-item w3-button">Testing Site Name</a>
+                    <a href="#" class="w3-bar-item w3-button">Testing Site Name</a>
+                </div>
 
-                <div>Results populated here</div>
+                <div id="contact-info">
+                    <h2 id="site-name"></h2>
+                    <p id="address"></p>
+                    <p id="phone-number"></p>
+                </div>
             </div>
         </section>
     </main>
