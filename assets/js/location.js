@@ -45,7 +45,6 @@ $("select").on('change', function () {
   };
 });
 
-
 fetch(apiUrlLocation)
   .then(function (response) {
     if (response.ok) {
