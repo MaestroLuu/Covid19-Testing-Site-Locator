@@ -3,15 +3,16 @@ var dataSet = [];
 
 var priorQuery = localStorage.getItem("pastSearch");
 $("#testing-sites").val(priorQuery);
-console.log(priorQuery);
 
-$("select").on('change', function () {
-  if (dataSet.length <= 0) {
+
+function displayData() {
+    $("#results-container").empty();
+  var query = $("#testing-sites").val();
+
+  if(!query) {
     return;
   }
   
-  $("#results-container").empty();
-  var query = (this.value);
   localStorage.setItem("pastSearch", query);
 
   for (i = 0; i < dataSet.length; i++) {
@@ -27,24 +28,31 @@ $("select").on('change', function () {
       siteEl.addClass("w3-bar-item w3-button covid-testing-sites");
       siteEl.text(facilityName);
       $("#results-container").append(siteEl);
-
-      // function for when facility name is clicked
-      $("#results-container").on("click", function(event) {
-        for (i = 0; i < dataSet.length; i++) {
-          if (event.target.matches(".covid-testing-sites")) {
-            var btnText = event.target.textContent;
-            if (btnText === dataSet[i].name) {
-              var physicalAddress = dataSet[i].physical_address[0]
-              $("#site-name").text(btnText);
-              $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " 
-              + physicalAddress.state_province + " " + physicalAddress.postal_code);
-            }
-          }
-        }
-      });
     }
-  };
+  }
+}
+
+$("select").on('change', function () {
+  if (dataSet.length <= 0) {
+    return;
+  }
+  displayData();
 });
+
+$("#results-container").on("click", function(event) {
+  for (i = 0; i < dataSet.length; i++) {
+    if (event.target.matches(".covid-testing-sites")) {
+      var btnText = event.target.textContent;
+      if (btnText === dataSet[i].name) {
+        var physicalAddress = dataSet[i].physical_address[0]
+        $("#site-name").text(btnText);
+        $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " 
+        + physicalAddress.state_province + " " + physicalAddress.postal_code);
+      }
+    }
+  }
+});
+
 
 fetch(apiUrlLocation)
   .then(function (response) {
@@ -53,7 +61,8 @@ fetch(apiUrlLocation)
         dataSet = data;
         // When user changes the city in the dropdown
         // a new list of facilities corresponding to the city
-        // appends to the container below    
+        // appends to the container below
+        displayData();  
       });
     }
   });
