@@ -50,6 +50,7 @@ header {
   .jumbo {
     border: 8px solid red;
     border-radius: 32px;
+    background-color: white;
   }
 
     .newsbox a.w3-xxlarge {
@@ -131,11 +132,37 @@ header {
 
         nav ul {
             margin: 0px 0px;
+            display: block;
+        }
+
+        nav a {
+            font-size: medium;
+        }
+
+        .w3-row {
+            display: flex;
+            flex-direction: column-reverse;
+            flex-wrap: wrap;
+        }
+
+        .w3-col.m8, .w3-twothird {
+            width: 100%;
+            margin-left: 0%;
+        }
+    
+        .w3-col.m4, .w3-third {
+            width: 100%;
         }
     
   }
 
   @media (max-width: 601px) {
+
+    header nav {
+        float: none;
+        padding: 0 0%;
+    }
+
     .w3-col.m8, .w3-twothird {
         width: 100%;
         margin-left: 0%;
@@ -145,9 +172,6 @@ header {
         width: 100%;
     }
 
-    #mySidebar {
-        display: none;
-    }
 
     footer.container {
         display: block;
