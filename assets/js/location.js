@@ -9,7 +9,8 @@ $("select").on('change', function () {
   if (dataSet.length <= 0) {
     return;
   }
-
+  
+  $("#results-container").empty();
   var query = (this.value);
   localStorage.setItem("pastSearch", query);
 
@@ -34,7 +35,7 @@ $("select").on('change', function () {
             var btnText = event.target.textContent;
             if (btnText === dataSet[i].name) {
               var physicalAddress = dataSet[i].physical_address[0]
-              $("#site-name").text(facilityName);
+              $("#site-name").text(btnText);
               $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " 
               + physicalAddress.state_province + " " + physicalAddress.postal_code);
             }
