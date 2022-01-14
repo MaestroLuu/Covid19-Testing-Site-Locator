@@ -18,17 +18,19 @@ $("select").on('change', function () {
       var facilityName = dataSet[i].name;
       if (facilityName === dataSet[i++].name) {
         var test = facilityName.slice(0);
+        // review saving array
+        localStorage.setItem("facility", test);
       }
 
       var siteEl = $("<a>");
-      siteEl.addClass("w3-bar-item w3-button testing-sites");
+      siteEl.addClass("w3-bar-item w3-button covid-testing-sites");
       siteEl.text(facilityName);
       $("#results-container").append(siteEl);
 
       // function for when facility name is clicked
       $("#results-container").on("click", function(event) {
         for (i = 0; i < dataSet.length; i++) {
-          if (event.target.matches(".testing-sites")) {
+          if (event.target.matches(".covid-testing-sites")) {
             var btnText = event.target.textContent;
             if (btnText === dataSet[i].name) {
               var physicalAddress = dataSet[i].physical_address[0]
