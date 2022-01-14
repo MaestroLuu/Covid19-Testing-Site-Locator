@@ -1,26 +1,21 @@
 var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
 var dataSet = [];
-
 var priorQuery = localStorage.getItem("pastSearch");
+
 $("#testing-sites").val(priorQuery);
 
-
 function displayData() {
-    $("#results-container").empty();
+  $("#results-container").empty();
   var query = $("#testing-sites").val();
-
-  if(!query) {
+  if (!query) {
     return;
   }
-  
   localStorage.setItem("pastSearch", query);
-
   for (i = 0; i < dataSet.length; i++) {
     if (query === dataSet[i].physical_address[0].city) {
       var facilityName = dataSet[i].name;
       if (facilityName === dataSet[i++].name) {
         var test = facilityName.slice(0);
-        // review saving array
         localStorage.setItem("facility", test);
       }
 
@@ -39,30 +34,26 @@ $("select").on('change', function () {
   displayData();
 });
 
-$("#results-container").on("click", function(event) {
+$("#results-container").on("click", function (event) {
   for (i = 0; i < dataSet.length; i++) {
     if (event.target.matches(".covid-testing-sites")) {
       var btnText = event.target.textContent;
       if (btnText === dataSet[i].name) {
         var physicalAddress = dataSet[i].physical_address[0]
         $("#site-name").text(btnText);
-        $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " 
-        + physicalAddress.state_province + " " + physicalAddress.postal_code);
+        $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " +
+          physicalAddress.state_province + " " + physicalAddress.postal_code);
       }
     }
   }
 });
-
 
 fetch(apiUrlLocation)
   .then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
         dataSet = data;
-        // When user changes the city in the dropdown
-        // a new list of facilities corresponding to the city
-        // appends to the container below
-        displayData();  
+        displayData();
       });
     }
   });
