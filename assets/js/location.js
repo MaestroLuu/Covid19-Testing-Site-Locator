@@ -1,18 +1,9 @@
 var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
 var dataSet = [];
 
-function init() {
-  var query = localStorage.getItem("pastSearch");
-  if (query === null) {
-    return;
-  }
-
-  console.log(query);
-  if (dataSet.length <= 0) {
-    return;
-  }
-  
-}
+var priorQuery = localStorage.getItem("pastSearch");
+$("#testing-sites").val(priorQuery);
+console.log(priorQuery);
 
 $("select").on('change', function () {
   if (dataSet.length <= 0) {
@@ -30,14 +21,14 @@ $("select").on('change', function () {
       }
 
       var siteEl = $("<a>");
-      siteEl.addClass("w3-bar-item w3-button testing-site");
+      siteEl.addClass("w3-bar-item w3-button testing-sites");
       siteEl.text(facilityName);
       $("#results-container").append(siteEl);
 
       // function for when facility name is clicked
       $("#results-container").on("click", function(event) {
         for (i = 0; i < dataSet.length; i++) {
-          if (event.target.matches(".testing-site")) {
+          if (event.target.matches(".testing-sites")) {
             var btnText = event.target.textContent;
             if (btnText === dataSet[i].name) {
               var physicalAddress = dataSet[i].physical_address[0]
