@@ -1,98 +1,66 @@
 var apiUrlLocation = "https://covid-19-testing.github.io/locations/california/complete.json";
-// var sanDiego = (data[2].physical_address[0].city);
-// console.log(sanDiego);
-// var sacramento1 = (data[0].physical_address[0].city);
-// console.log(sacramento1);
-// var sacramento2 = (data[10].physical_address[0].city);
-// console.log(sacramento2);
-// var sanFrancisco1 = (data[1].physical_address[0].city);
-// console.log(sanFrancisco1);
-// var sanFrancisco2 = (data[20].physical_address[0].city);
-// console.log(sanFrancisco2);
-// var sanFrancisco3 = (data[38].physical_address[0].city);
-// console.log(sanFrancisco3);
-// var sanJose = (data[21].physical_address[0].city);
-// console.log(sanJose);
+var dataSet = [];
 
-// var sanDiego = (data[2].physical_address[0].address_1);
-// console.log(sanDiego);
-// var sacramento1 = (data[0].physical_address[0].address_1);
-// console.log(sacramento1);
-// var sacramento2 = (data[10].physical_address[0].address_1);
-// console.log(sacramento2);
-// var sanFrancisco1 = (data[1].physical_address[0].address_1);
-// console.log(sanFrancisco1);
-// var sanFrancisco2 = (data[20].physical_address[0].address_1);
-// console.log(sanFrancisco2);
-// var sanFrancisco3 = (data[38].physical_address[0].address_1);
-// console.log(sanFrancisco3);
-// var sanJose = (data[21].physical_address[0].address_1);
-// console.log(sanJose);
+function init() {
+  var query = localStorage.getItem("pastSearch");
+  if (query === null) {
+    return;
+  }
 
-// var sanDiego = (data[2].physical_address[0].postal_code);
-// console.log(sanDiego);
-// var sacramento1 = (data[0].physical_address[0].postal_code);
-// console.log(sacramento1);
-// var sacramento2 = (data[10].physical_address[0].postal_code);
-// console.log(sacramento2);
-// var sanFrancisco1 = (data[1].physical_address[0].postal_code);
-// console.log(sanFrancisco1);
-// var sanFrancisco2 = (data[20].physical_address[0].postal_code);
-// console.log(sanFrancisco2);
-// var sanFrancisco3 = (data[38].physical_address[0].postal_code);
-// console.log(sanFrancisco3);
-// var sanJose = (data[21].physical_address[0].postal_code);
-// console.log(sanJose);
+  console.log(query);
+  if (dataSet.length <= 0) {
+    return;
+  }
+  
+}
 
-// array[2] san diego
-// array[0,10] sacramento
-//array[1,20,38] san rancisco
-//array[21] san jose
+$("select").on('change', function () {
+  if (dataSet.length <= 0) {
+    return;
+  }
+
+  var query = (this.value);
+  localStorage.setItem("pastSearch", query);
+
+  for (i = 0; i < dataSet.length; i++) {
+    if (query === dataSet[i].physical_address[0].city) {
+      var facilityName = dataSet[i].name;
+      if (facilityName === dataSet[i++].name) {
+        var test = facilityName.slice(0);
+      }
+
+      var siteEl = $("<a>");
+      siteEl.addClass("w3-bar-item w3-button testing-site");
+      siteEl.text(facilityName);
+      $("#results-container").append(siteEl);
+
+      // function for when facility name is clicked
+      $("#results-container").on("click", function(event) {
+        for (i = 0; i < dataSet.length; i++) {
+          if (event.target.matches(".testing-site")) {
+            var btnText = event.target.textContent;
+            if (btnText === dataSet[i].name) {
+              var physicalAddress = dataSet[i].physical_address[0]
+              $("#site-name").text(facilityName);
+              $("#address").text(physicalAddress.address_1 + " " + physicalAddress.city + " " 
+              + physicalAddress.state_province + " " + physicalAddress.postal_code);
+            }
+          }
+        }
+      });
+    }
+  };
+});
+
+
 fetch(apiUrlLocation)
   .then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-
-        for(i=0; i < data.length; i++){
-          //console.log(data[i]);
-          console.log(data[i].physical_address[0]);    
-        }
-        var sanDiego = (data[2].physical_address[0].postal_code);
-console.log(sanDiego);
-var sacramento1 = (data[0].physical_address[0].postal_code);
-console.log(sacramento1);
-var sacramento2 = (data[10].physical_address[0].postal_code);
-console.log(sacramento2);
-var sanFrancisco1 = (data[1].physical_address[0].postal_code);
-console.log(sanFrancisco1);
-var sanFrancisco2 = (data[20].physical_address[0].postal_code);
-console.log(sanFrancisco2);
-var sanFrancisco3 = (data[38].physical_address[0].postal_code);
-console.log(sanFrancisco3);
-var sanJose = (data[21].physical_address[0].postal_code);
-console.log(sanJose);
-        
+        dataSet = data;
+        // When user changes the city in the dropdown
+        // a new list of facilities corresponding to the city
+        // appends to the container below    
       });
-    } else {
-      alert('Error: ' + response.statusText);
     }
-  })
-  .catch(function (error) {
-    alert('Error');
   });
-
-
-// var sanDiego = (data[2].physical_address[0].postal_code);
-// console.log(sanDiego);
-// var sacramento1 = (data[0].physical_address[0].postal_code);
-// console.log(sacramento1);
-// var sacramento2 = (data[10].physical_address[0].postal_code);
-// console.log(sacramento2);
-// var sanFrancisco1 = (data[1].physical_address[0].postal_code);
-// console.log(sanFrancisco1);
-// var sanFrancisco2 = (data[20].physical_address[0].postal_code);
-// console.log(sanFrancisco2);
-// var sanFrancisco3 = (data[38].physical_address[0].postal_code);
-// console.log(sanFrancisco3);
-// var sanJose = (data[21].physical_address[0].postal_code);
-// console.log(sanJose);
