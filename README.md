@@ -10,6 +10,8 @@ The following images show a glimpse of the application:
 
 ![with favorites](assets/images/demoPic.png)
 
+<img src="./assets/images/demo.gif" alt="mobile functionality" width="320">
+
 ## Getting Started
 
 This is a simple application that runs right in the browser, no installation or downloads needed.
@@ -31,5 +33,5 @@ Maxwell Scheller
 
 ## Planned Updates
 
-- As we attain more APIs regarding testing sites, we will increase the pulled data to provide a larger array for users.
-- We plan to implement geocoding in future developments so that gps coordinates can be referenced when searching for testing sites.
+- As we attain more APIs regarding testing sites, we will increase the pulled data to provide a larger array for users to search.
+- We plan to implement geocoding in future developments so that gps coordinates can be referenced when searching for testing sites nearby.
